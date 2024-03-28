@@ -14,7 +14,7 @@ function SearchBar({ onSearch }) {
         type="text"
         value={city}
         onChange={e => setCity(e.target.value)}
-        placeholder="Buscar ciudad..."
+        placeholder="Buscar ciudad"
       />
       <button type="submit">Buscar</button>
     </form>
