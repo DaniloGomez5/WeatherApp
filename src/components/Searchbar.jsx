@@ -6,6 +6,7 @@ function SearchBar({ onSearch }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     onSearch(city);
+    setCity("");
   };
 
   return (
