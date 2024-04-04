@@ -46,29 +46,29 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Navbar onSearch={search} />
+      <Navbar onSearch={search} />
 
-        {weatherData && (
-          <div>
-            <h2>{weatherData.name}</h2>
-            <h3>{weatherData.weather[0].description}</h3>
-            <p>Temperatura: {Math.round(weatherData.main.temp - 273.15)}°C</p>
-            <p>
-              Sensación térmica:{" "}
-              {Math.round(weatherData.main.feels_like - 273.15)}°C
-            </p>
-            <p>Presión: {weatherData.main.pressure} hPa</p>
-            <p>Humedad: {weatherData.main.humidity}%</p>
-            <p>Velocidad del viento: {weatherData.wind.speed} m/s</p>
-            <p>Dirección del viento: {weatherData.wind.deg}°</p>
-            <p>Nubosidad: {weatherData.clouds.all}%</p>
-          </div>
-        )}
+      {weatherData && (
+        <div className="weatherdata">
+          <h2>{weatherData.name}</h2>
+          <h3>{weatherData.weather[0].description}</h3>
+          <p>Temperatura: {Math.round(weatherData.main.temp - 273.15)}°C</p>
+          <p>
+            Sensación térmica:{" "}
+            {Math.round(weatherData.main.feels_like - 273.15)}°C
+          </p>
+          <p>Presión: {weatherData.main.pressure} hPa</p>
+          <p>Humedad: {weatherData.main.humidity}%</p>
+          <p>Velocidad del viento: {weatherData.wind.speed} m/s</p>
+          <p>Dirección del viento: {weatherData.wind.deg}°</p>
+          <p>Nubosidad: {weatherData.clouds.all}%</p>
+        </div>
+      )}
 
-        {Array.isArray(forecastData) &&
-          forecastData.map((forecast, index) => (
-            <div key={index} className="forecast-day">
+      {Array.isArray(forecastData) && (
+        <div className="forecast-container">
+          {forecastData.map((forecast, index) => (
+            <div key={index} className="forecastday">
               <h4>{forecast.dt_txt.split(" ")[0]}</h4>
               <p>Temperatura: {Math.round(forecast.main.temp - 273.15)}°C</p>
               <p>
@@ -83,7 +83,8 @@ function App() {
               <p>Nubosidad: {forecast.clouds.all}%</p>
             </div>
           ))}
-      </header>
+        </div>
+      )}
     </div>
   );
 }
