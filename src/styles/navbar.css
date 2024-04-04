@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'bella4';
+  src: url('../../public/fonts/bella_4/Bella.ttf') format('truetype'),
+}
+
 nav {
     display: flex;
     padding: 10px;
@@ -7,6 +12,7 @@ nav {
   }
   
   h1 {
+    font-family: 'bella4';
     margin-right: auto;
     margin-top: 0;    
   }
